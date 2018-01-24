@@ -1,6 +1,4 @@
-'use strict';
-
-var square = function square(x) {
+const square = function(x) {
     return x * x;
 };
 
@@ -8,9 +6,7 @@ var square = function square(x) {
 //     return x * x;
 // };
 
-var squareArrow = function squareArrow(x) {
-    return x * x;
-};
+const squareArrow = (x) => x * x;
 
 console.log(squareArrow(4));
 
@@ -22,8 +18,6 @@ console.log(squareArrow(4));
 //     return name.split(' ')[0];
 // }
 
-var getFirstName = function getFirstName(name) {
-    return name.split(' ')[0];
-};
+const getFirstName = (name) => name.split(' ')[0];
 
 console.log(getFirstName('Laura Bailey'));
