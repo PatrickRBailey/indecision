@@ -23,9 +23,13 @@ const removeAll = () => {
     renderApp();
 };
 
-const appRoot = document.getElementById("app");
+const onMakeDecision = () => {
+    const randomNum = Math.floor(Math.random() * app.options.length);
+    const option = app.options[randomNum];
+    alert(option);
+}
 
-// const numbers = [55, 101, 1000];
+const appRoot = document.getElementById("app");
 
 const renderApp = () => {
     const template = (
@@ -33,13 +37,8 @@ const renderApp = () => {
             <h1>{app.title}</h1>
             {app.subtitle && <p>{app.subtitle}</p>}
             <p>{app.options && app.options.length > 0 ? 'Here are your options': 'No options'}</p>
-            <p>{app.options.length}</p>
+            <button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do? </button>
             <button onClick={removeAll}>Remove All</button>
-            {/* {
-                numbers.map((number) => {
-                    return <p key={number}>Number: {number}</p>;
-                })
-            } */}
             <ol>
                 {
                     app.options.map((opt) => <li key={opt}>{opt}</li>)
