@@ -13,6 +13,7 @@ const onFormSubmit = (e) => {
     if (option) {
         app.options.push(option);
         e.target.elements.option.value = '';
+        console.log('test');
         renderApp();
     }  
 };
@@ -22,7 +23,9 @@ const removeAll = () => {
     renderApp();
 };
 
+const appRoot = document.getElementById("app");
 
+// const numbers = [55, 101, 1000];
 
 const renderApp = () => {
     const template = (
@@ -32,9 +35,16 @@ const renderApp = () => {
             <p>{app.options && app.options.length > 0 ? 'Here are your options': 'No options'}</p>
             <p>{app.options.length}</p>
             <button onClick={removeAll}>Remove All</button>
+            {/* {
+                numbers.map((number) => {
+                    return <p key={number}>Number: {number}</p>;
+                })
+            } */}
             <ol>
-                <li>Item one</li>
-                <li>Item two</li>
+                {
+                    app.options.map((opt) => <li key={opt}>{opt}</li>)
+                    
+                }
             </ol>
             <form onSubmit={onFormSubmit}>
                 <input type='text' name='option' />
@@ -45,7 +55,6 @@ const renderApp = () => {
     ReactDOM.render(template, appRoot);
 };
 
-const appRoot = document.getElementById("app");
 renderApp();
 
 
