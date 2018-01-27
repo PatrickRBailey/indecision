@@ -52,8 +52,8 @@ var Traveler = function (_Person) {
         key: 'getGreeting',
         value: function getGreeting() {
             var greeting = _get(Traveler.prototype.__proto__ || Object.getPrototypeOf(Traveler.prototype), 'getGreeting', this).call(this);
-            if (!!this.homeLocation) {
-                greeting += ' I\'m visiting from ' + this.homeLocation;
+            if (this.homeLocation) {
+                greeting += ' I\'m visiting from ' + this.homeLocation + '.';
             }
             return greeting;
         }
