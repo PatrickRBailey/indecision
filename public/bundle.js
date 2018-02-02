@@ -21433,17 +21433,17 @@ var _AddOption = __webpack_require__(32);
 
 var _AddOption2 = _interopRequireDefault(_AddOption);
 
-var _Options = __webpack_require__(36);
+var _Action = __webpack_require__(35);
 
-var _Options2 = _interopRequireDefault(_Options);
+var _Action2 = _interopRequireDefault(_Action);
 
 var _Header = __webpack_require__(34);
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _Action = __webpack_require__(35);
+var _Options = __webpack_require__(36);
 
-var _Action2 = _interopRequireDefault(_Action);
+var _Options2 = _interopRequireDefault(_Options);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21466,12 +21466,10 @@ var IndecisionApp = function (_React$Component) {
         _this.handleAddOption = _this.handleAddOption.bind(_this);
         _this.handleDeleteOption = _this.handleDeleteOption.bind(_this);
         _this.state = {
-            options: props.options
+            options: []
         };
         return _this;
     }
-    // Life Cycle Methods
-
 
     _createClass(IndecisionApp, [{
         key: 'componentDidMount',
@@ -21485,7 +21483,9 @@ var IndecisionApp = function (_React$Component) {
                         return { options: options };
                     });
                 }
-            } catch (e) {}
+            } catch (e) {
+                // Do nothing at all
+            }
         }
     }, {
         key: 'componentDidUpdate',
@@ -21498,7 +21498,7 @@ var IndecisionApp = function (_React$Component) {
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
-            console.log('component did unmount');
+            console.log('componentWillUnmount');
         }
     }, {
         key: 'handleDeleteOptions',
@@ -21535,16 +21535,15 @@ var IndecisionApp = function (_React$Component) {
             }
 
             this.setState(function (prevState) {
-                return { options: prevState.options.concat(option) };
+                return {
+                    options: prevState.options.concat(option)
+                };
             });
         }
     }, {
         key: 'render',
         value: function render() {
             var subtitle = 'Put your life in the hands of a computer';
-            // Header.defaultProps = {
-            //     title: 'Indecision'
-            // }
 
             return _react2.default.createElement(
                 'div',
