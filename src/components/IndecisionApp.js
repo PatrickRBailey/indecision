@@ -69,10 +69,14 @@ export default class IndecisionApp extends React.Component {
     
     render() {
         const subtitle = 'Put your life in the hands of a computer';
+        const title = 'Indecision App';
 
         return (
             <div>
-                <Header subtitle={subtitle} />
+                <Header 
+                    subtitle={subtitle} 
+                    title={title}
+                />
                 <Action
                     hasOptions={this.state.options.length > 0}
                     handlePick={this.handlePick}
